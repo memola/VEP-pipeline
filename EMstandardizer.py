@@ -179,7 +179,8 @@ if __name__ == '__main__':
             contents = text_file.read()
             #tokenize
             words = re.findall(r'[\^A-z\']+(?:[\-\'\*\`]?[\^A-z])*|[0-9]*[\.]?[0-9]+|[ ]+|[\n]+|[^a-zA-Z0-9\^ \n]+',contents)
-            if long_d:
+            #empty dict is falsy, but a 1:1 dictionary will result in empty long_d
+            if 'long_d' in locals():
                 line = []
                 i = 0
                 while i < (len(words)):
